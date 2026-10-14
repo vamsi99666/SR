@@ -7,7 +7,13 @@ Python + Pillow (with libraqm for Telugu shaping), piped frame by frame into ffm
 - **One timeline:** shot lengths come from the VO files, and captions use measured word times from the same audio. Animation, captions and sound share one clock.
 - **Repeatable:** run `python build.py kids_v2 --format both --deliver`.
 
-## Pronunciation check (strict)
+## Voice change: Chandana M (current)
+Chaitra G was rejected. Four voices were auditioned on the same line, and Chandana M (`yh3r4dKRD9qGVdBTPArr`) was chosen.
+All 12 lines were regenerated and re-transcribed (Telugu, confidence 0.9999). **Every word matches the script.** The only differences are natural spoken joins ("దేనికోసమని", "మీరున్నారు"), and "తీసుకెళ్తాయి" keeps its full "-ాయి" ending.
+Trailing silences of 2–3 s on lines 5 and 10 were trimmed.
+The Chaitra G audio is kept in `audio/kids_v2_chaitra/` (not committed).
+
+## Pronunciation check, Chaitra G version (superseded)
 Method: all 12 VO lines were joined and transcribed with ElevenLabs Scribe (Telugu, confidence 0.9999), then compared word by word against the script.
 
 | Line | Scripted | Heard | Action |

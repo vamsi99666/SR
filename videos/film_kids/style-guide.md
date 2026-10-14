@@ -52,7 +52,7 @@ Telugu shaping uses libraqm (verified conjuncts render correctly). English loan 
 
 ## 5. Sound
 
-- VO: ElevenLabs `eleven_v3`, female Telugu voice **Chaitra G – Calm, Motivational Narrator** (approved). Every line is checked with Telugu speech-to-text against the script before render (see review.md).
+- VO: ElevenLabs `eleven_v3`, female Telugu voice **Chandana M – Bright, Clear Tutor** (chosen by audition after Chaitra G was rejected). Every line is checked with Telugu speech-to-text against the script before render (see review.md).
 - One VO file per shot; shot length = VO length + 0.35 s breath (last shot + 1.2 s hold). Captions are timed to the same clock.
 - No music or SFX in v2 (none supplied).
 - Night palette for the emotional opening: window `#1D2733`, lamp glow `#F6D678` in 3 soft rings.

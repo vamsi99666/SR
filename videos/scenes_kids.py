@@ -160,7 +160,7 @@ def speak(c, t, dur, p):
     for i in range(6):
         x = 60 + i * 120
         bob = math.sin(t * 4 + i) * 3 if p > 0.6 else 0
-        c.circle(x, 985 + bob, 34, mix(INK, (90, 90, 90), (i % 2) * 0.4), shadow=False)
+        c.circle(x, 940 + bob, 28, mix(INK, (90, 90, 90), (i % 2) * 0.4), shadow=False)
 
 
 def fall_rise(c, t, dur, p):
@@ -223,15 +223,38 @@ def ranks_skills(c, t, dur, p):
             c.text(360, y, s, 36, WHITE, "te")
 
 
+V2_SKILLS = ["ప్రశ్నించే తెలివి", "నిజాన్ని చూసే కళ్ళు", "ఎంచుకునే ధైర్యం", "అర్థం చేసుకునే మనసు"]
+
+
+def rank_vs_habit(c, t, dur, p):
+    """Ranks fall away on 'one year'; the four skills stack up solid on 'lifetime'."""
+    ground(c)
+    for i, r in enumerate(["#1", "#2", "#3"]):
+        k = seg(p, 0.18 + i * 0.06, 0.5 + i * 0.06)
+        x, y = 200 + i * 160, 380 + k * k * 640
+        if k < 1:
+            c.circle(x, y, 58, fade(mix(INK, GREY, k), 1 - k), shadow=k < 0.2)
+            c.text(x, y, r, 38, fade(WHITE, 1 - k), "mono")
+    for i, s_ in enumerate(V2_SKILLS):
+        k = ease_back(seg(p, 0.58 + i * 0.07, 0.7 + i * 0.07))
+        if k <= 0:
+            continue
+        y = 900 - i * 84
+        w = 400 * k
+        c.rrect(360 - w / 2, y - 36, 360 + w / 2, y + 36, 8, [TEAL_L, INK, RED, TEAL][i])
+        if k > 0.9:
+            c.text(360, y, s_, 32, WHITE, "te")
+
+
 def end(c, t, dur, p):
     rise = ease_out(seg(p, 0, 0.6))
-    c.circle(360, 900 - 140 * rise, 170, mix(RED, (240, 150, 60), 0.3), shadow=False)
-    c.rrect(-10, 900, W + 10, 1000, 0, TEAL, False)
+    c.circle(360, 870 - 140 * rise, 170, mix(RED, (240, 150, 60), 0.3), shadow=False)
+    c.rrect(-10, 870, W + 10, 955, 0, TEAL, False)
     walk = seg(p, 0.1, 1.0)
     x = lerp(120, 330, walk)
-    person(c, x, 900, 230, INK, walk=t * 7, arm=None)
-    kid(c, x + 70, 900, 130, walk=t * 7 + 1)
-    c.line([(x + 25, 900 - 130), (x + 55, 900 - 85)], INK, 6)
+    person(c, x, 870, 230, INK, walk=t * 7, arm=None)
+    kid(c, x + 70, 870, 130, walk=t * 7 + 1)
+    c.line([(x + 25, 870 - 130), (x + 55, 870 - 85)], INK, 6)
 
 
 def twelve_grid(c, t, dur, p):
@@ -615,7 +638,7 @@ def four_gifts(c, t, dur, p):
         if rc > 0.6:
             c.text(360, 480, "MARKS", 30, INK, "mono")
             cross(c, 360, 570, 160 * rc, RED, p=seg(p, 0.04, 0.12), width=12)
-    starts = [0.27, 0.43, 0.59, 0.75]
+    starts = [0.25, 0.40, 0.57, 0.77]   # measured from the VO word timings
     for i, ((kind, name), st) in enumerate(zip(GIFTS, starts)):
         k = ease_back(seg(p, st, st + 0.1))
         if k <= 0:
@@ -635,5 +658,5 @@ def four_gifts(c, t, dur, p):
 SCENES = {f.__name__: f for f in [kid_class5, future_door, marks, questions, basics, hands, speak, fall_rise,
                                    ai_tool, ranks_skills, end, twelve_grid, memorize, focus, adapt,
                                    split_schools, home, thinker, money, fact_check, bias_scale,
-                                   two_channels, choose, feelings, night_homework,
+                                   two_channels, choose, feelings, night_homework, rank_vs_habit,
                                    ai_answers, four_gifts]}

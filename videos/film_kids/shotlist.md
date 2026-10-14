@@ -1,31 +1,24 @@
-# Shot list — "4 skills" kids film (~68 s)
+# Shot list — "marks కాదు, ఈ నాలుగు" (kids film v2, 85.4 s)
 
-Timings are estimates from the male-VO cut; final cuts snap to the female VO lengths (+0.35 s each).
+Final timings, taken from the approved female VO (Chaitra G). Each shot = VO length + 0.35 s; the last shot holds 1.2 s more.
+Captions and the four skill cards are synced to measured word times (ElevenLabs Scribe), not estimates.
 
-| # | Time | VO (Telugu) | Entry state | Action | Exit state | Purpose |
+| # | Time (s) | VO (Telugu) | Entry state | Action | Exit state | Purpose |
 |---|---|---|---|---|---|---|
-| 1 | 0.00–3.35 | AI యుగంలో మీ పిల్లలకి కావాల్సింది ఇంకో tuition కాదు. | Empty paper; stack of 3 tuition books on desk, red child beside it | Books pop in (0.0–0.4 s), red X slashes the stack on "కాదు" | Crossed stack, child looks up | **Hook**: contradiction in the first 2 s |
-| 2 | 3.35–10.20 | ఈ నాలుగు skills కావాలి: critical thinking, bias ని గుర్తించడం, judgment, emotional intelligence. | Paper; no label | 4 chips pop in one per skill name, in sync with each word | 4 chips in a 2×2 grid, all lit | **Preview / promise** (the structure you liked in the mp3) |
-| 3 | 10.20–16.31 | ఏ విషయం విన్నా, ఇది నిజమేనా? ఎలా తెలుసు? అని అడగడం. | Label "1. critical thinking" slides in; chip 1 lit in tracker | Child raises arm, 3 "?" pop; robot stacks answer cards; child's ? circled | Child + highlighted question | Skill 1 – why |
-| 4 | 16.31–21.54 | WhatsApp లో వచ్చిన ఒక forward ని, పిల్లలతో కలిసి నిజమో కాదో check చేయండి. | Same label; parent (ink) + child, phone pops | Magnifier glides over message; "FAKE?" stamp lands on "check" | Stamped phone | Skill 1 – do at home |
-| 5 | 21.54–27.65 | ప్రతి answer వెనక ఒక వైపు ఉంటుంది. AI కైనా, news కైనా, మనకైనా. | Label "2. bias" | Scale with "AI" and "news" pans rocks; "?" pops at midpoint | Scale settles tilted | Skill 2 – why |
-| 6 | 27.65–32.72 | ఒకే వార్తని రెండు channels లో చూపించి, తేడా ఏంటో అడగండి. | Same label; two TVs (teal, red) pop in sequence | Same figure, different spin; child points; "?" | Child between TVs | Skill 2 – do at home |
-| 7 | 32.72–38.51 | AI పది options ఇస్తుంది. ఏది సరైనదో ఎంచుకోవడం మనిషి పని. | Label "3. judgment"; robot right, child left | 10 option cards fly out; 9 dim, one turns red + check on "ఎంచుకోవడం" | One red card chosen | Skill 3 – why |
-| 8 | 38.51–44.46 | చిన్న నిర్ణయాలు పిల్లలకే వదిలేయండి. తప్పు చేసినా, దాని నుంచే నేర్చుకుంటారు. | Same label; ground line, stone | Child walks, trips on "తప్పు", gets up and walks on, arm up | Child exits right, upright | Skill 3 – do at home |
-| 9 | 44.46–49.45 | తన కోపం, భయం ఏంటో గుర్తించి, మాటల్లో చెప్పగలగడం. | Label "4. emotional intelligence" | 4 feeling faces pop; Telugu names appear under each | Faces named | Skill 4 – why |
-| 10 | 49.45–54.44 | ఇంకొకరి బాధ అర్థం చేసుకునే పిల్లలే, రేపు team ని నడిపిస్తారు. | Same label; child on small stage, audience heads | Speech bubble grows, 3 lines draw; audience bobs | Child "leading" the room | Skill 4 – payoff |
-| 11 | 54.44–60.29 | ర్యాంక్ ఒక్క సంవత్సరం గుర్తుంటుంది. ఆలోచించే అలవాటు జీవితాంతం ఉంటుంది. | No label; rank badges #1 #2 #3 | Badges fall and fade on "సంవత్సరం"; 4 skill chips stack up solid on "జీవితాంతం" | Solid skill stack | **Contrast line** you asked to bring back |
-| 12 | 60.29–68.40 | marks interview దాకా తీసుకెళ్తాయి. ఆలోచన, judgment జీవితంలో ముందుకు తీసుకెళ్తాయి. | Sun rising over teal ground | Parent + red child walk toward the sun; 1.2 s hold on last frame | Poster frame | **Ending** (kept as-is) |
+| 1 | 0.00–7.98 | రాత్రి పది దాటినా homework చేస్తున్న మీ పిల్లల్ని చూసి... ఎప్పుడైనా అనిపించిందా? ఇదంతా దేనికోసం అని? | Night room: dark window, moon, clock at 10, lamp glow; red child bent over desk | Homework pile grows; child's head droops; parent slides into the doorway (2.8–5.2 s); "?" on "దేనికోసం" | Parent watching, "?" above | **Hook**: emotional recognition |
+| 2 | 7.98–13.97 | వాళ్ళు పెద్దయ్యే సరికి, ప్రతి ప్రశ్నకి answer AI క్షణంలో చెప్పేస్తుంది. | Same room | Robot pops in; 6 answer cards fly onto the desk; "0.2s" appears | Desk buried in answers | Stakes |
+| 3 | 13.97–25.71 | అప్పుడు వాళ్ళని నిలబెట్టేది marks కాదు. ప్రశ్నించే తెలివి, నిజాన్ని చూసే కళ్ళు, సరైనది ఎంచుకునే ధైర్యం, ఇంకొకరిని అర్థం చేసుకునే మనసు. | MARKS card | MARKS crossed out on "marks కాదు"; 4 gift cards (?, eye, signpost, heart) pop in **on each skill name** | 2×2 grid of the four skills, red frame | **Promise / preview** (the structure you liked) |
+| 4 | 25.71–31.62 | మీ పిల్లలు ఎందుకు? అని అడిగినప్పుడు విసుక్కోకండి. ఆ ప్రశ్నే వాళ్ళ మొదటి ఆయుధం. | Label "1. ప్రశ్నించే తెలివి" | Child raises arm, three "?" pop; answer cards stack; the child's question is circled | Question highlighted | Skill 1: emotion |
+| 5 | 31.62–38.50 | ఒక WhatsApp forward ని కలిసి check చేయండి. నిజం ఏంటో కనిపెట్టడం వాళ్ళకి ఒక ఆటలా అవ్వాలి. | Parent + child; phone pops | Magnifier glides over the forward; "FAKE?" stamp | Stamped phone | Skill 1: do at home |
+| 6 | 38.50–45.46 | ప్రపంచం ప్రతి విషయాన్ని ఒక వైపు నుంచే చెబుతుంది. రెండో వైపు చూడటం మనమే నేర్పాలి. | Label "2. నిజాన్ని చూసే కళ్ళు" | Scale (AI / news) rocks, "?" at pivot | Scale settles | Skill 2 |
+| 7 | 45.46–52.42 | AI పది దారులు చూపిస్తుంది. ఏ దారిలో వెళ్ళాలో, తెలివి, మనసు కలిసి నిర్ణయించాలి. | Label "3. ఎంచుకునే ధైర్యం"; robot + child | 10 options fly out; 9 dim, one turns red + check | One chosen | Skill 3 |
+| 8 | 52.42–59.30 | చిన్న నిర్ణయాలు వాళ్ళకే వదిలేయండి. తప్పు చేసినా పర్వాలేదు. పక్కనే మీరు ఉన్నారు కదా. | Same label; ground + stone | Child trips, gets up, walks on, arm up | Upright child | Skill 3: reassurance |
+| 9 | 59.30–63.62 | ఏడుస్తున్నప్పుడు ఏడవకు అనకండి. ఏమైంది? అని అడగండి. | Label "4. అర్థం చేసుకునే మనసు" | 4 feeling faces pop, Telugu names appear | Named feelings | Skill 4: the strongest emotional line |
+| 10 | 63.62–68.88 | తన బాధ చెప్పగలిగిన పిల్లలే, రేపు ఇంకొకరి బాధ అర్థం చేసుకుంటారు. | Child on stage, audience | Speech bubble grows, 3 lines draw | Child speaking | Skill 4: payoff |
+| 11 | 68.88–75.84 | ర్యాంక్ ఒక్క సంవత్సరం గుర్తుంటుంది. ఆలోచించే అలవాటు జీవితాంతం ఉంటుంది. | Rank badges #1–#3 | Badges fall on "సంవత్సరం"; the **same 4 skills** stack up on "జీవితాంతం" | Solid skill stack | Contrast line (requested) |
+| 12 | 75.84–85.36 | marks interview దాకా తీసుకువెళ్తాయి. ఆలోచన, judgment జీవితంలో ముందుకు తీసుకువెళ్తాయి. | Sunrise over teal ground | Parent + child walk toward the sun; 1.2 s hold | Poster frame | Ending (kept) |
 
 ## Continuity devices
-- Red child appears in 11 of 12 shots; shot 2 uses red for the active chip.
-- 16:9 only: the skill tracker (4 chips) stays on the right panel from shot 3 to 10, the current chip turning red.
-- The same 4 chips from shot 2 come back in shot 11, which closes the loop.
-
-## Changes vs the current male-VO cut
-1. New hook visual (tuition books crossed out) instead of the report card.
-2. New shot 2 (the skill preview).
-3. New shot 11 (the rank vs habit line).
-4. Captions move above the Reels UI safe zone.
-5. Female voice.
-6. 16:9 composition added.
+- The red child appears in every shot except 3 and 11. In those two, red marks the active idea instead (the crossed-out MARKS card and the red chip).
+- The four skill names are identical in shot 3, the labels, shot 11 and the 16:9 tracker.
+- 16:9 only: a 2×2 skill tracker sits on the right panel. The current skill is red, finished skills are ink, upcoming skills are card.

@@ -85,9 +85,8 @@ def fade(color, a):
 
 # ---------- background ----------
 
-def make_paper():
+def make_paper(w=W * S, h=H * S):
     rng = np.random.default_rng(7)
-    w, h = W * S, H * S
     base = np.empty((h, w, 3), np.float32)
     base[:] = PAPER
     noise = rng.normal(0, 3.2, (h // 4, w // 4)).astype(np.float32)
@@ -313,27 +312,38 @@ def _caption_layout(c, words, size, max_w):
     return lines, sp
 
 
-def caption(c, text, p, y=1110, size=40, max_w=620):
-    """Word-by-word reveal: spoken words in ink, upcoming words greyed."""
+def caption(c, text, p, y=1110, size=40, max_w=620, cx=None, starts=None, t=None):
+    """Word-by-word reveal: spoken words in ink, upcoming words greyed.
+    starts: measured word start times (s) from speech-to-text; when given, each
+    script word lights up exactly when it is spoken (mapped by index if the
+    transcript splits words differently)."""
+    cx = W / 2 if cx is None else cx
     words = text.split()
-    weights = [len(w) + 2 for w in words]
-    tot = sum(weights)
-    span = clamp((p - 0.02) / 0.88)
-    acc, shown = 0, 0
-    for wt in weights:
-        if span * tot >= acc + wt * 0.3:
-            shown += 1
-        acc += wt
+    if starts and t is not None:
+        n, m = len(words), len(starts)
+        shown = 0
+        for i in range(n):
+            j = round(i * (m - 1) / max(1, n - 1)) if m != n else i
+            if t >= starts[j] - 0.05:
+                shown = i + 1
+    else:
+        weights = [len(w) + 2 for w in words]
+        tot = sum(weights)
+        span = clamp((p - 0.02) / 0.88)
+        acc, shown = 0, 0
+        for wt in weights:
+            if span * tot >= acc + wt * 0.3:
+                shown += 1
+            acc += wt
     lines, sp = _caption_layout(c, words, size, max_w)
     lh = size * 1.55
     y0 = y - (len(lines) - 1) * lh / 2
     idx = 0
     for li, ln in enumerate(lines):
         total = sum(w for _, w in ln) + sp * (len(ln) - 1)
-        x = W / 2 - total / 2
+        x = cx - total / 2
         for wd, ww in ln:
             col = INK if idx < shown else (170, 162, 150)
             c.text(x, y0 + li * lh, wd, size, col, "te", anchor="lm")
             x += ww + sp
             idx += 1
-

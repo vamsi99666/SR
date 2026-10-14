@@ -25,7 +25,7 @@
   {
    "scene": "fact_check",
    "label": "1. ప్రశ్నించే తెలివి",
-   "te": "ఒక WhatsApp forward ని కలిసి check చేయండి. నిజం వెతకడం వాళ్ళకి ఒక ఆటలా అవ్వాలి.",
+   "te": "ఒక WhatsApp forward ని కలిసి check చేయండి. నిజం ఏంటో కనిపెట్టడం వాళ్ళకి ఒక ఆటలా అవ్వాలి.",
    "en": "Check a WhatsApp forward together. Searching for the truth should feel like a game."
   },
   {
@@ -59,14 +59,31 @@
    "en": "Kids who can name their own pain grow up to understand others'."
   },
   {
-   "scene": "ranks_skills",
+   "scene": "rank_vs_habit",
    "te": "ర్యాంక్ ఒక్క సంవత్సరం గుర్తుంటుంది. ఆలోచించే అలవాటు జీవితాంతం ఉంటుంది.",
    "en": "A rank is remembered for a year. The habit of thinking lasts a lifetime."
   },
   {
    "scene": "end",
-   "te": "marks interview దాకా తీసుకెళ్తాయి. ఆలోచన, judgment జీవితంలో ముందుకు తీసుకెళ్తాయి.",
+   "te": "marks interview దాకా తీసుకువెళ్తాయి. ఆలోచన, judgment జీవితంలో ముందుకు తీసుకువెళ్తాయి.",
    "en": "Marks get them to the interview. Thinking and judgment carry them through life."
   }
- ]
+ ],
+ "skills": [
+  "ప్రశ్నించే తెలివి",
+  "నిజాన్ని చూసే కళ్ళు",
+  "ఎంచుకునే ధైర్యం",
+  "అర్థం చేసుకునే మనసు"
+ ],
+ "layout": {
+  "caption_y": 1045,
+  "caption_size": 38,
+  "caption_plate": true
+ },
+ "voice": {
+  "provider": "ElevenLabs",
+  "model": "eleven_v3",
+  "voice": "Chaitra G – Calm, Motivational Narrator",
+  "voice_id": "PnktIx9i1QQBGfm7h7cd"
+ }
 }

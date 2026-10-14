@@ -42,19 +42,20 @@ Telugu shaping uses libraqm (verified conjuncts render correctly). English loan 
 **9:16 (1080×1920 export, designed at 720×1280)**
 - Label card: y 120–220
 - Illustration: y 240–940
-- Captions: centred y ≈ 1000, max 3 lines → **change from v1**: v1 captions sat at y≈1110, inside the Reels/Shorts UI zone (bottom ~210 px). Moving them up.
+- Captions: centred y ≈ 1045 (38 px) on a paper-coloured plate (y 968–1180) so artwork never collides with text. v1 sat at y≈1110.
 - Side gutters 40 px.
 
 **16:9 (1920×1080)**
-- Left: illustration square (the 9:16 art region, 700×700 design units) scaled to 1080×1080.
+- Left: illustration square (9:16 art region y 250–970) scaled to 1000×1000 at (40, 40).
 - Right panel (840 px): skill tracker (4 chips, current one red) → label → captions at 52 px.
 - Same timeline, same frames-per-shot; only the composition differs.
 
 ## 5. Sound
 
-- VO: ElevenLabs `eleven_v3`, female Telugu voice — proposed **Chaitra G – Calm, Motivational Narrator** (reflective, parent-to-parent tone). Alternative: **Seeta – Engaging E-Learning Companion** (brighter, punchier).
+- VO: ElevenLabs `eleven_v3`, female Telugu voice **Chaitra G – Calm, Motivational Narrator** (approved). Every line is checked with Telugu speech-to-text against the script before render (see review.md).
 - One VO file per shot; shot length = VO length + 0.35 s breath (last shot + 1.2 s hold). Captions are timed to the same clock.
-- Optional (your call): soft synthesised "paper pop" on card/label entrances, −24 dB under VO, generated in code (no third-party audio). Default **off** unless you say yes.
+- No music or SFX in v2 (none supplied).
+- Night palette for the emotional opening: window `#1D2733`, lamp glow `#F6D678` in 3 soft rings.
 
 ## 6. Voice & copy rules
 

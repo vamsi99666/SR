@@ -296,7 +296,7 @@ def focus(c, t, dur, p):
             c.circle(x - 26, y, 6, fade(WHITE, fade_k), shadow=False)
     if p > 0.6:
         g = seg(p, 0.6, 0.8)
-        c.circle(360, 790, 110 + 6 * math.sin(t * 4), fade(TEAL, 0.08 * g), shadow=False, outline=fade(TEAL, g), width=4)
+        c.circle(360, 790, 110 + 6 * math.sin(t * 4), None, shadow=False, outline=fade(TEAL, g), width=4)
 
 
 def adapt(c, t, dur, p):

@@ -1,0 +1,66 @@
+{
+ "title": "పిల్లలు రాబోయే 10 ఏళ్లకు ఎలా సిద్ధం కావాలి",
+ "title_en": "Preparing kids for the next 10 years",
+ "lines": [
+  {
+   "scene": "kid_class5",
+   "te": "మీ పిల్లలు ఈ రోజు ఐదో తరగతిలో ఉంటే...",
+   "en": "If your child is in 5th class today..."
+  },
+  {
+   "scene": "future_door",
+   "te": "పదేళ్ల తర్వాత వాళ్ళు చేసే ఉద్యోగం, బహుశా ఈ రోజు ఇంకా పుట్టలేదు.",
+   "en": "the job they do ten years from now probably doesn't exist yet."
+  },
+  {
+   "scene": "marks",
+   "te": "మరి marks ఒక్కటే సరిపోతాయా? సరిపోవు.",
+   "en": "So are marks alone enough? No."
+  },
+  {
+   "scene": "questions",
+   "label": "1. ప్రశ్నలు అడగడం",
+   "te": "మొదటిది, ప్రశ్నలు అడగడం. సమాధానాలు AI ఇస్తుంది. సరైన ప్రశ్న మనిషే అడగాలి.",
+   "en": "One: asking questions. AI gives answers. Only a human asks the right question."
+  },
+  {
+   "scene": "basics",
+   "label": "2. basics",
+   "te": "రెండోది, basics. చదవడం, రాయడం, లెక్కలు. ఇవి లేకపోతే AI తప్పు చెప్పినా తెలియదు.",
+   "en": "Two: basics. Reading, writing, maths. Without them, you can't tell when AI is wrong."
+  },
+  {
+   "scene": "hands",
+   "label": "3. చేసి నేర్చుకోవడం",
+   "te": "మూడోది, చేతులతో చేయనివ్వండి. చిన్న project, చిన్న business, ఏదైనా.",
+   "en": "Three: let them build with their hands. A small project, a small business, anything."
+  },
+  {
+   "scene": "speak",
+   "label": "4. మాట్లాడటం",
+   "te": "నాలుగోది, తమ ఆలోచనను స్పష్టంగా చెప్పగలగడం.",
+   "en": "Four: being able to explain their thinking clearly."
+  },
+  {
+   "scene": "fall_rise",
+   "label": "5. మళ్ళీ లేవడం",
+   "te": "ఐదోది, ఓడిపోవడం నేర్పండి. పడిపోయినా మళ్ళీ లేవడం.",
+   "en": "Five: teach them how to lose. To fall and get back up."
+  },
+  {
+   "scene": "ai_tool",
+   "te": "AI ని చూసి భయపడొద్దు. దాన్ని ఒక tool లా వాడటం నేర్పండి.",
+   "en": "Don't fear AI. Teach them to use it as a tool."
+  },
+  {
+   "scene": "ranks_skills",
+   "te": "ర్యాంకులు మారిపోతాయి. skills మిగిలిపోతాయి.",
+   "en": "Ranks fade. Skills stay."
+  },
+  {
+   "scene": "end",
+   "te": "పదేళ్ల తర్వాత మీ పిల్లలు thank you చెప్పేది, ఈ రోజు మీరు తీసుకునే నిర్ణయానికే.",
+   "en": "Ten years from now, your kids will thank you for the decision you make today."
+  }
+ ]
+}

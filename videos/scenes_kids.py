@@ -514,7 +514,126 @@ def feelings(c, t, dur, p):
                 c.text(x, y + 90, name, 30, fade(INK, lk), "te")
 
 
+NIGHT = (29, 39, 51)
+LAMP = (246, 214, 120)
+
+
+def _room_night(c, t, p):
+    c.rrect(110, 290, 330, 500, 6, NIGHT)                       # window
+    c.line([(220, 290), (220, 500)], CARD, 6)
+    c.line([(110, 395), (330, 395)], CARD, 6)
+    c.circle(285, 340, 26, (240, 236, 214), shadow=False)
+    c.circle(274, 334, 22, NIGHT, shadow=False)                 # crescent
+    for sx, sy in [(150, 330), (180, 450), (260, 455), (300, 430), (160, 420)]:
+        tw = 2 + 1.5 * math.sin(t * 3 + sx)
+        c.circle(sx, sy, tw, (240, 236, 214), shadow=False)
+    c.circle(560, 360, 58, CARD)                                # clock at 10:05
+    c.circle(560, 360, 58, None, shadow=False, outline=INK, width=4)
+    c.line([(560, 360), (560 - 30, 360 - 17)], INK, 6)
+    c.line([(560, 360), (560 + 8, 360 - 46)], INK, 4)
+
+
+def _lamp_glow(c, x, y, k=1.0):
+    for r, a in [(170, 0.18), (120, 0.3), (80, 0.45)]:
+        c.circle(x, y, r * k, fade(LAMP, a), shadow=False)
+
+
+def _desk(c, kid_x, droop, pages):
+    _lamp_glow(c, 450, 790)
+    kid(c, kid_x, GROUND, 200, angle=droop)
+    c.rrect(180, 830, 560, 852, 3, (120, 86, 52))               # desk top
+    c.rrect(200, 852, 230, GROUND, 2, (100, 70, 42))
+    c.rrect(510, 852, 540, GROUND, 2, (100, 70, 42))
+    c.line([(470, 830), (470, 760)], INK, 5)                    # lamp
+    c.poly([(440, 760), (500, 760), (485, 730), (455, 730)], RED)
+    for j in range(pages):
+        c.rrect(250, 818 - j * 9, 340, 828 - j * 9, 2, [CARD, TEAL_L, RED][j % 3])
+
+
+def night_homework(c, t, dur, p):
+    ground(c)
+    _room_night(c, t, p)
+    droop = -0.08 - 0.06 * math.sin(t * 1.3) * seg(p, 0.2, 1)
+    _desk(c, 330, droop, 3 + int(seg(p, 0, 0.8) * 6))
+    # parent appears in the doorway, watching
+    c.rrect(590, 600, 700, GROUND, 4, (196, 186, 168))
+    k = ease_out(seg(p, 0.35, 0.65))
+    if k > 0:
+        person(c, lerp(760, 640, k), GROUND, 250, INK)
+    if p > 0.7:
+        q = ease_back(seg(p, 0.7, 0.85))
+        question_mark(c, 660, 640 + math.sin(t * 2) * 5, 60 * q, color=CARD)
+
+
+def ai_answers(c, t, dur, p):
+    ground(c)
+    _room_night(c, t, p)
+    _desk(c, 330, -0.04, 5)
+    rk = ease_back(seg(p, 0.05, 0.25))
+    rx, ry = 600, 640 + math.sin(t * 3) * 8
+    robot(c, rx, ry, 90 * rk, look=-1, blink=int(t * 2.5) % 6 == 0)
+    for i in range(6):
+        k = seg(p, 0.25 + i * 0.09, 0.4 + i * 0.09)
+        if 0 < k < 1:
+            e = ease_in_out(k)
+            x = lerp(rx - 40, 300, e)
+            y = lerp(ry, 800, e) - math.sin(math.pi * e) * 120
+            c.rrect(x - 34, y - 16, x + 34, y + 16, 4, CARD)
+            c.text(x, y, "answer", 14, GREY, "mono")
+    if p > 0.75:
+        c.text(300, 690, "0.2s", 30, fade(RED, seg(p, 0.75, 0.85)), "mono")
+
+
+def _gift_icon(c, kind, x, y, s):
+    if kind == "q":
+        question_mark(c, x, y, 90 * s)
+    elif kind == "eye":
+        c.poly([(x - 62 * s, y), (x, y - 36 * s), (x + 62 * s, y), (x, y + 36 * s)], INK, shadow=False)
+        c.poly([(x - 52 * s, y), (x, y - 28 * s), (x + 52 * s, y), (x, y + 28 * s)], WHITE, shadow=False)
+        c.circle(x, y, 26 * s, TEAL_L, shadow=False)
+        c.circle(x, y, 11 * s, INK, shadow=False)
+    elif kind == "path":
+        c.line([(x, y + 45 * s), (x, y - 40 * s)], INK, 6 * s)
+        c.poly([(x, y - 40 * s), (x + 60 * s, y - 40 * s), (x + 75 * s, y - 25 * s), (x + 60 * s, y - 10 * s), (x, y - 10 * s)], TEAL_L)
+        c.poly([(x, y - 5 * s), (x - 60 * s, y - 5 * s), (x - 75 * s, y + 10 * s), (x - 60 * s, y + 25 * s), (x, y + 25 * s)], RED)
+    else:
+        c.circle(x - 22 * s, y - 12 * s, 26 * s, RED, shadow=False)
+        c.circle(x + 22 * s, y - 12 * s, 26 * s, RED, shadow=False)
+        c.poly([(x - 47 * s, y - 4 * s), (x + 47 * s, y - 4 * s), (x, y + 50 * s)], RED, shadow=False)
+
+
+GIFTS = [("q", "ప్రశ్నించే తెలివి"), ("eye", "నిజాన్ని చూసే కళ్ళు"),
+         ("path", "ఎంచుకునే ధైర్యం"), ("heart", "అర్థం చేసుకునే మనసు")]
+
+
+def four_gifts(c, t, dur, p):
+    # report card shrinks away on "marks కాదు", then four gifts arrive with each phrase
+    rc = 1 - ease_in_out(seg(p, 0.12, 0.25))
+    if rc > 0:
+        w, h = 240 * rc, 300 * rc
+        c.rrect(360 - w / 2, 560 - h / 2, 360 + w / 2, 560 + h / 2, 6, CARD)
+        if rc > 0.6:
+            c.text(360, 480, "MARKS", 30, INK, "mono")
+            cross(c, 360, 570, 160 * rc, RED, p=seg(p, 0.04, 0.12), width=12)
+    starts = [0.27, 0.43, 0.59, 0.75]
+    for i, ((kind, name), st) in enumerate(zip(GIFTS, starts)):
+        k = ease_back(seg(p, st, st + 0.1))
+        if k <= 0:
+            continue
+        col, row = i % 2, i // 2
+        x, y = 200 + col * 320, 420 + row * 300
+        w, h = 280 * k, 250 * k
+        c.rrect(x - w / 2, y - h / 2, x + w / 2, y + h / 2, 14, CARD)
+        if k > 0.85:
+            _gift_icon(c, kind, x, y - 30, 1.0)
+            c.text(x, y + 80, name, 26, INK, "te")
+    if p > 0.92:
+        g = seg(p, 0.92, 1)
+        c.rrect(60, 260, 660, 880, 20, None, shadow=False, outline=fade(RED, g), width=3)
+
+
 SCENES = {f.__name__: f for f in [kid_class5, future_door, marks, questions, basics, hands, speak, fall_rise,
                                    ai_tool, ranks_skills, end, twelve_grid, memorize, focus, adapt,
                                    split_schools, home, thinker, money, fact_check, bias_scale,
-                                   two_channels, choose, feelings]}
+                                   two_channels, choose, feelings, night_homework,
+                                   ai_answers, four_gifts]}

@@ -1,0 +1,20 @@
+{
+ "title": "sample: opening of kids_v2",
+ "lines": [
+  {
+   "scene": "night_homework",
+   "te": "రాత్రి పది దాటినా homework చేస్తున్న మీ పిల్లల్ని చూసి... ఎప్పుడైనా అనిపించిందా? ఇదంతా దేనికోసం అని?",
+   "en": "Watching your child still doing homework past 10pm... have you ever wondered, what is all this for?"
+  },
+  {
+   "scene": "ai_answers",
+   "te": "వాళ్ళు పెద్దయ్యే సరికి, ప్రతి ప్రశ్నకి answer AI క్షణంలో చెప్పేస్తుంది.",
+   "en": "By the time they grow up, AI will answer every question in a second."
+  },
+  {
+   "scene": "four_gifts",
+   "te": "అప్పుడు వాళ్ళని నిలబెట్టేది marks కాదు. ప్రశ్నించే తెలివి, నిజాన్ని చూసే కళ్ళు, సరైనది ఎంచుకునే ధైర్యం, ఇంకొకరిని అర్థం చేసుకునే మనసు.",
+   "en": "Then what holds them up won't be marks. A questioning mind, eyes that see the truth, the courage to choose right, and a heart that understands others."
+  }
+ ]
+}

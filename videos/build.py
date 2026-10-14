@@ -23,7 +23,8 @@ import engine
 from engine import W, H, FPS, Canvas, caption, label_card, seg
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SCENE_MODULES = {"jobs_pyramid": "scenes_jobs", "kids_future": "scenes_kids"}
+SCENE_MODULES = {"jobs_pyramid": "scenes_jobs", "kids_future": "scenes_kids",
+                 "kids_v2": "scenes_kids", "kids_sample": "scenes_kids"}
 PAD = 0.35        # silence after each line
 TAIL = 1.2        # hold on the last scene
 SR = 44100

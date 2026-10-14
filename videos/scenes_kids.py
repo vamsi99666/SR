@@ -387,6 +387,134 @@ def money(c, t, dur, p):
         c.rrect(590, 900 - i * 24, 660, 920 - i * 24, 4, (236, 186, 60))
 
 
+def _phone(c, x, y, w=220, h=380):
+    c.rrect(x - w / 2, y - h / 2, x + w / 2, y + h / 2, 26, INK)
+    c.rrect(x - w / 2 + 14, y - h / 2 + 30, x + w / 2 - 14, y + h / 2 - 30, 10, CARD, False)
+
+
+def fact_check(c, t, dur, p):
+    ground(c)
+    kid(c, 150, h=130)
+    person(c, 250, GROUND, 220, INK)
+    k = ease_back(seg(p, 0.05, 0.2))
+    if k <= 0:
+        return
+    _phone(c, 520, 620, 220 * k, 380 * k)
+    if k < 0.9:
+        return
+    c.rrect(430, 480, 610, 560, 12, (200, 235, 200), False)
+    for j in range(3):
+        c.line([(445, 500 + j * 22), (595 - j * 30, 500 + j * 22)], INK, 4)
+    c.text(520, 590, "Forwarded", 18, GREY, "mono")
+    m = ease_in_out(seg(p, 0.3, 0.6))
+    mx, my = lerp(380, 520, m), lerp(800, 520, m)
+    c.circle(mx, my, 46, None, shadow=False, outline=RED, width=7)
+    c.line([(mx + 32, my + 32), (mx + 70, my + 70)], RED, 10)
+    st = ease_back(seg(p, 0.65, 0.78))
+    if st > 0:
+        c.rrect(440, 660 - 34 * st, 600, 660 + 34 * st, 6, None, shadow=False, outline=RED, width=5)
+        if st > 0.9:
+            c.text(520, 660, "FAKE?", 40, RED, "mono")
+
+
+def bias_scale(c, t, dur, p):
+    ground(c)
+    tilt = math.sin(seg(p, 0.15, 1) * math.pi * 2.5) * 0.18 * (1 - seg(p, 0.85, 1)) + 0.12 * seg(p, 0.85, 1)
+    cx, cy = 360, 560
+    c.poly([(cx - 70, GROUND), (cx + 70, GROUND), (cx, GROUND - 60)], INK)
+    c.line([(cx, GROUND - 40), (cx, cy)], INK, 8)
+    dx, dy = math.cos(tilt) * 230, math.sin(tilt) * 230
+    left, right = (cx - dx, cy - dy), (cx + dx, cy + dy)
+    c.line([left, right], INK, 8)
+    c.circle(cx, cy, 14, RED)
+    for (x, y), lab, col in [(left, "AI", TEAL_L), (right, "news", RED)]:
+        c.line([(x, y), (x - 50, y + 120)], INK, 2)
+        c.line([(x, y), (x + 50, y + 120)], INK, 2)
+        c.poly([(x - 75, y + 120), (x + 75, y + 120), (x + 55, y + 150), (x - 55, y + 150)], col)
+        c.text(x, y + 135, lab, 24, WHITE, "mono")
+    k = ease_back(seg(p, 0.55, 0.7))
+    if k > 0:
+        question_mark(c, cx, 400, 80 * k)
+
+
+def two_channels(c, t, dur, p):
+    ground(c)
+    for j, (x, col, mood) in enumerate([(200, TEAL_L, 1), (520, RED, -1)]):
+        k = ease_back(seg(p, 0.05 + j * 0.15, 0.2 + j * 0.15))
+        if k <= 0:
+            continue
+        w, h = 260 * k, 200 * k
+        y = 520
+        c.rrect(x - w / 2, y - h / 2, x + w / 2, y + h / 2, 10, INK)
+        c.rrect(x - w / 2 + 12, y - h / 2 + 12, x + w / 2 - 12, y + h / 2 - 12, 4, col, False)
+        c.line([(x - 40, y + h / 2), (x - 60, y + h / 2 + 40)], INK, 5)
+        c.line([(x + 40, y + h / 2), (x + 60, y + h / 2 + 40)], INK, 5)
+        if k > 0.9:
+            person(c, x, y + 70, 110, WHITE, shadow=False, arm="up" if mood > 0 else None)
+            c.text(x, y - 70, "CH " + str(j + 1), 22, WHITE, "mono")
+            # same story, different spin
+            c.arc(x, y + 60 - mood * 10, 40, 200 if mood > 0 else 20, 340 if mood > 0 else 160, WHITE, 0)
+    kid(c, 360, h=130, arm="point" if p > 0.5 else None)
+    k = ease_back(seg(p, 0.55, 0.7))
+    if k > 0:
+        question_mark(c, 360, 760 + math.sin(t * 3) * 6, 70 * k)
+
+
+def choose(c, t, dur, p):
+    ground(c)
+    robot(c, 580, 820 + math.sin(t * 3) * 6, 90, look=-1)
+    kid(c, 140, h=140, arm="up" if p > 0.6 else None)
+    picked = 4
+    for i in range(10):
+        k = ease_out(seg(p, 0.05 + i * 0.04, 0.2 + i * 0.04))
+        if k <= 0:
+            continue
+        col, row = i % 2, i // 2
+        tx, ty = 270 + col * 140, 380 + row * 80
+        x, y = lerp(580, tx, k), lerp(780, ty, k)
+        chosen = i == picked and p > 0.6
+        dim = seg(p, 0.6, 0.75) if i != picked else 0
+        fill = RED if chosen else fade(CARD, 1 - 0.7 * dim)
+        c.rrect(x - 60, y - 28, x + 60, y + 28, 6, fill)
+        c.text(x, y, f"option {i + 1}", 18, WHITE if chosen else fade(INK, 1 - 0.7 * dim), "mono")
+    if p > 0.7:
+        check(c, 270 + 140 * (picked % 2) + 90, 380 + 80 * (picked // 2), 34, p=seg(p, 0.7, 0.85))
+
+
+def _face(c, x, y, r, col, mood):
+    c.circle(x, y, r, col)
+    c.circle(x - r * 0.35, y - r * 0.2, r * 0.1, INK, shadow=False)
+    c.circle(x + r * 0.35, y - r * 0.2, r * 0.1, INK, shadow=False)
+    if mood == "happy":
+        c.arc(x, y + r * 0.05, r * 0.45, 20, 160, INK, 4)
+    elif mood == "sad":
+        c.arc(x, y + r * 0.55, r * 0.4, 200, 340, INK, 4)
+    elif mood == "angry":
+        c.line([(x - r * 0.55, y - r * 0.5), (x - r * 0.15, y - r * 0.35)], INK, 4)
+        c.line([(x + r * 0.55, y - r * 0.5), (x + r * 0.15, y - r * 0.35)], INK, 4)
+        c.line([(x - r * 0.3, y + r * 0.4), (x + r * 0.3, y + r * 0.4)], INK, 4)
+    else:  # scared
+        c.circle(x, y + r * 0.4, r * 0.15, INK, shadow=False)
+
+
+def feelings(c, t, dur, p):
+    ground(c)
+    kid(c, 360, h=150, arm="point" if p > 0.5 else None)
+    moods = [("angry", (230, 120, 100), "కోపం"), ("scared", (180, 200, 230), "భయం"),
+             ("sad", (170, 190, 200), "బాధ"), ("happy", (240, 205, 90), "సంతోషం")]
+    for i, (m, col, name) in enumerate(moods):
+        k = ease_back(seg(p, 0.08 + i * 0.1, 0.2 + i * 0.1))
+        if k <= 0:
+            continue
+        x, y = 135 + i * 150, 520 + math.sin(t * 2.5 + i) * 6
+        _face(c, x, y, 55 * k, col, m)
+        if k > 0.9:
+            lk = seg(p, 0.5 + i * 0.08, 0.6 + i * 0.08)
+            if lk > 0:
+                c.text(x, y + 90, name, 30, fade(INK, lk), "te")
+
+
 SCENES = {f.__name__: f for f in [kid_class5, future_door, marks, questions, basics, hands, speak, fall_rise,
                                    ai_tool, ranks_skills, end, twelve_grid, memorize, focus, adapt,
-                                   split_schools, home, thinker, money]}
+                                   split_schools, home, thinker, money, fact_check, bias_scale,
+                                   two_channels, choose, feelings]}

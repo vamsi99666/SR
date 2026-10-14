@@ -1,71 +1,64 @@
 {
- "title": "మన పిల్లలకి 'బాగా చదవడం' సరిపోదు",
- "title_en": "Studying well isn't enough anymore: 9 things to build at home",
- "status": "draft: awaiting user's Telugu edits before voiceover",
+ "title": "AI యుగంలో పిల్లలకి కావాల్సిన 4 skills",
+ "title_en": "4 skills kids need in the AI era",
  "lines": [
   {
    "scene": "marks",
-   "te": "మన చిన్నప్పుడు 'బాగా చదివితే చాలు' అనేవాళ్ళు. మన పిల్లలకి అది సరిపోదు.",
-   "en": "When we were kids, they said studying well was enough. For our kids, it isn't."
-  },
-  {
-   "scene": "memorize",
-   "label": "1. బట్టీ కాదు, అర్థం",
-   "te": "ఎక్కాలు బట్టీ పట్టడం కాదు, 7×8 ఎందుకు 56 అవుతుందో అర్థమవ్వాలి.",
-   "en": "Not memorising tables, but understanding why 7×8 is 56."
+   "te": "AI యుగంలో మీ పిల్లలకి కావాల్సింది ఇంకో tuition కాదు. ఈ నాలుగు skills.",
+   "en": "In the AI era, your child doesn't need another tuition. They need these four skills."
   },
   {
    "scene": "questions",
-   "label": "2. 'ఎందుకు?'",
-   "te": "రోజూ భోజనం దగ్గర ఒక్క 'ఎందుకు?' ప్రశ్న. జవాబు కన్నా ప్రశ్నే ముఖ్యం.",
-   "en": "One 'why?' at dinner every day. The question matters more than the answer."
+   "label": "1. critical thinking",
+   "te": "ఏ విషయం విన్నా, ఇది నిజమేనా? ఎలా తెలుసు? అని అడగడం.",
+   "en": "Whatever they hear, asking: is this true? How do we know?"
   },
   {
-   "scene": "basics",
-   "label": "3. AI ని check చేయడం",
-   "te": "AI homework చేసేస్తే కాదు, AI చెప్పింది తప్పా ఒప్పా check చేయడం నేర్పండి.",
-   "en": "Not AI doing homework, but checking whether AI is right."
+   "scene": "fact_check",
+   "label": "1. critical thinking",
+   "te": "WhatsApp లో వచ్చిన ఒక forward ని, పిల్లలతో కలిసి నిజమో కాదో check చేయండి.",
+   "en": "Take one WhatsApp forward and fact-check it together with your kids."
   },
   {
-   "scene": "focus",
-   "label": "4. focus",
-   "te": "phone పక్కన పెట్టి, ఒక్క పని మీద 30 నిమిషాలు. ఇదే రేపటి superpower.",
-   "en": "Phone aside, 30 minutes on one task. Tomorrow's superpower."
+   "scene": "bias_scale",
+   "label": "2. bias ని గుర్తించడం",
+   "te": "ప్రతి answer వెనక ఒక వైపు ఉంటుంది. AI కైనా, news కైనా, మనకైనా.",
+   "en": "Every answer leans some way. AI's, the news's, even ours."
   },
   {
-   "scene": "hands",
-   "label": "5. చేసి నేర్చుకోవడం",
-   "te": "వంట, చిన్న repair, ఒక చిన్న project. చేసి నేర్చుకున్నది మర్చిపోరు.",
-   "en": "Cooking, a small repair, a small project. What they do, they don't forget."
+   "scene": "two_channels",
+   "label": "2. bias ని గుర్తించడం",
+   "te": "ఒకే వార్తని రెండు channels లో చూపించి, తేడా ఏంటో అడగండి.",
+   "en": "Show the same news on two channels and ask what's different."
   },
   {
-   "scene": "speak",
-   "label": "6. ఇతరుల్ని అర్థం చేసుకోవడం",
-   "te": "అన్నా చెల్లెళ్ళతో గొడవ పడినా, అవతలి వాళ్ళ వైపు నుంచి ఆలోచించడం నేర్పండి.",
-   "en": "Even in sibling fights, teach them to see the other side."
+   "scene": "choose",
+   "label": "3. judgment",
+   "te": "AI పది options ఇస్తుంది. ఏది సరైనదో ఎంచుకోవడం మనిషి పని.",
+   "en": "AI gives ten options. Choosing the right one is a human's job."
   },
   {
    "scene": "fall_rise",
-   "label": "7. ఓటమిని తట్టుకోవడం",
-   "te": "marks తగ్గితే తిట్టడం కాదు, 'తర్వాత ఏం మారుద్దాం?' అని అడగండి.",
-   "en": "When marks drop, don't scold. Ask 'what do we change next time?'"
+   "label": "3. judgment",
+   "te": "చిన్న నిర్ణయాలు పిల్లలకే వదిలేయండి. తప్పు చేసినా, దాని నుంచే నేర్చుకుంటారు.",
+   "en": "Leave small decisions to the kids. Even when wrong, they learn from it."
   },
   {
-   "scene": "money",
-   "label": "8. డబ్బు విలువ",
-   "te": "pocket money లో సేవింగ్, ఖర్చు, ఆలోచించి కొనడం. చిన్నప్పుడే మొదలవ్వాలి.",
-   "en": "Saving, spending, buying thoughtfully with pocket money. Start early."
+   "scene": "feelings",
+   "label": "4. emotional intelligence",
+   "te": "తన కోపం, భయం ఏంటో గుర్తించి, మాటల్లో చెప్పగలగడం.",
+   "en": "Recognising their own anger or fear, and putting it into words."
   },
   {
-   "scene": "adapt",
-   "label": "9. ఒకే దారి కాదు",
-   "te": "8వ తరగతికే engineer, doctor అని ఫిక్స్ చేయకండి. మారగలిగే సత్తా ఇవ్వండి.",
-   "en": "Don't fix 'engineer or doctor' by 8th class. Give them the ability to adapt."
+   "scene": "speak",
+   "label": "4. emotional intelligence",
+   "te": "ఇంకొకరి బాధ అర్థం చేసుకునే పిల్లలే, రేపు team ని నడిపిస్తారు.",
+   "en": "Kids who understand others' pain are the ones who'll lead teams tomorrow."
   },
   {
    "scene": "end",
-   "te": "ర్యాంక్ ఒక్క సంవత్సరం గుర్తుంటుంది. ఆలోచించే అలవాటు జీవితాంతం ఉంటుంది.",
-   "en": "A rank is remembered for a year. The habit of thinking lasts a lifetime."
+   "te": "marks interview దాకా తీసుకెళ్తాయి. ఆలోచన, judgment జీవితంలో ముందుకు తీసుకెళ్తాయి.",
+   "en": "Marks get them to the interview. Thinking and judgment carry them through life."
   }
  ]
 }

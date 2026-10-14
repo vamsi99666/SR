@@ -1,66 +1,71 @@
 {
- "title": "పిల్లలు రాబోయే 10 ఏళ్లకు ఎలా సిద్ధం కావాలి",
- "title_en": "Preparing kids for the next 10 years",
+ "title": "మన పిల్లలకి 'బాగా చదవడం' సరిపోదు",
+ "title_en": "Studying well isn't enough anymore: 9 things to build at home",
+ "status": "draft: awaiting user's Telugu edits before voiceover",
  "lines": [
   {
-   "scene": "kid_class5",
-   "te": "మీ పిల్లలు ఈ రోజు ఐదో తరగతిలో ఉంటే...",
-   "en": "If your child is in 5th class today..."
-  },
-  {
-   "scene": "future_door",
-   "te": "పదేళ్ల తర్వాత వాళ్ళు చేసే ఉద్యోగం, బహుశా ఈ రోజు ఇంకా పుట్టలేదు.",
-   "en": "the job they do ten years from now probably doesn't exist yet."
-  },
-  {
    "scene": "marks",
-   "te": "మరి marks ఒక్కటే సరిపోతాయా? సరిపోవు.",
-   "en": "So are marks alone enough? No."
+   "te": "మన చిన్నప్పుడు 'బాగా చదివితే చాలు' అనేవాళ్ళు. మన పిల్లలకి అది సరిపోదు.",
+   "en": "When we were kids, they said studying well was enough. For our kids, it isn't."
+  },
+  {
+   "scene": "memorize",
+   "label": "1. బట్టీ కాదు, అర్థం",
+   "te": "ఎక్కాలు బట్టీ పట్టడం కాదు, 7×8 ఎందుకు 56 అవుతుందో అర్థమవ్వాలి.",
+   "en": "Not memorising tables, but understanding why 7×8 is 56."
   },
   {
    "scene": "questions",
-   "label": "1. ప్రశ్నలు అడగడం",
-   "te": "మొదటిది, ప్రశ్నలు అడగడం. సమాధానాలు AI ఇస్తుంది. సరైన ప్రశ్న మనిషే అడగాలి.",
-   "en": "One: asking questions. AI gives answers. Only a human asks the right question."
+   "label": "2. 'ఎందుకు?'",
+   "te": "రోజూ భోజనం దగ్గర ఒక్క 'ఎందుకు?' ప్రశ్న. జవాబు కన్నా ప్రశ్నే ముఖ్యం.",
+   "en": "One 'why?' at dinner every day. The question matters more than the answer."
   },
   {
    "scene": "basics",
-   "label": "2. basics",
-   "te": "రెండోది, basics. చదవడం, రాయడం, లెక్కలు. ఇవి లేకపోతే AI తప్పు చెప్పినా తెలియదు.",
-   "en": "Two: basics. Reading, writing, maths. Without them, you can't tell when AI is wrong."
+   "label": "3. AI ని check చేయడం",
+   "te": "AI homework చేసేస్తే కాదు, AI చెప్పింది తప్పా ఒప్పా check చేయడం నేర్పండి.",
+   "en": "Not AI doing homework, but checking whether AI is right."
+  },
+  {
+   "scene": "focus",
+   "label": "4. focus",
+   "te": "phone పక్కన పెట్టి, ఒక్క పని మీద 30 నిమిషాలు. ఇదే రేపటి superpower.",
+   "en": "Phone aside, 30 minutes on one task. Tomorrow's superpower."
   },
   {
    "scene": "hands",
-   "label": "3. చేసి నేర్చుకోవడం",
-   "te": "మూడోది, చేతులతో చేయనివ్వండి. చిన్న project, చిన్న business, ఏదైనా.",
-   "en": "Three: let them build with their hands. A small project, a small business, anything."
+   "label": "5. చేసి నేర్చుకోవడం",
+   "te": "వంట, చిన్న repair, ఒక చిన్న project. చేసి నేర్చుకున్నది మర్చిపోరు.",
+   "en": "Cooking, a small repair, a small project. What they do, they don't forget."
   },
   {
    "scene": "speak",
-   "label": "4. మాట్లాడటం",
-   "te": "నాలుగోది, తమ ఆలోచనను స్పష్టంగా చెప్పగలగడం.",
-   "en": "Four: being able to explain their thinking clearly."
+   "label": "6. ఇతరుల్ని అర్థం చేసుకోవడం",
+   "te": "అన్నా చెల్లెళ్ళతో గొడవ పడినా, అవతలి వాళ్ళ వైపు నుంచి ఆలోచించడం నేర్పండి.",
+   "en": "Even in sibling fights, teach them to see the other side."
   },
   {
    "scene": "fall_rise",
-   "label": "5. మళ్ళీ లేవడం",
-   "te": "ఐదోది, ఓడిపోవడం నేర్పండి. పడిపోయినా మళ్ళీ లేవడం.",
-   "en": "Five: teach them how to lose. To fall and get back up."
+   "label": "7. ఓటమిని తట్టుకోవడం",
+   "te": "marks తగ్గితే తిట్టడం కాదు, 'తర్వాత ఏం మారుద్దాం?' అని అడగండి.",
+   "en": "When marks drop, don't scold. Ask 'what do we change next time?'"
   },
   {
-   "scene": "ai_tool",
-   "te": "AI ని చూసి భయపడొద్దు. దాన్ని ఒక tool లా వాడటం నేర్పండి.",
-   "en": "Don't fear AI. Teach them to use it as a tool."
+   "scene": "money",
+   "label": "8. డబ్బు విలువ",
+   "te": "pocket money లో సేవింగ్, ఖర్చు, ఆలోచించి కొనడం. చిన్నప్పుడే మొదలవ్వాలి.",
+   "en": "Saving, spending, buying thoughtfully with pocket money. Start early."
   },
   {
-   "scene": "ranks_skills",
-   "te": "ర్యాంకులు మారిపోతాయి. skills మిగిలిపోతాయి.",
-   "en": "Ranks fade. Skills stay."
+   "scene": "adapt",
+   "label": "9. ఒకే దారి కాదు",
+   "te": "8వ తరగతికే engineer, doctor అని ఫిక్స్ చేయకండి. మారగలిగే సత్తా ఇవ్వండి.",
+   "en": "Don't fix 'engineer or doctor' by 8th class. Give them the ability to adapt."
   },
   {
    "scene": "end",
-   "te": "పదేళ్ల తర్వాత మీ పిల్లలు thank you చెప్పేది, ఈ రోజు మీరు తీసుకునే నిర్ణయానికే.",
-   "en": "Ten years from now, your kids will thank you for the decision you make today."
+   "te": "ర్యాంక్ ఒక్క సంవత్సరం గుర్తుంటుంది. ఆలోచించే అలవాటు జీవితాంతం ఉంటుంది.",
+   "en": "A rank is remembered for a year. The habit of thinking lasts a lifetime."
   }
  ]
 }

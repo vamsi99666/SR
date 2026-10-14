@@ -33,7 +33,7 @@ def kid_class5(c, t, dur, p):
 
 def future_door(c, t, dur, p):
     ground(c)
-    yr = int(lerp(2026, 2036, ease_in_out(seg(p, 0.05, 0.6))))
+    yr = int(lerp(2026, 2035, ease_in_out(seg(p, 0.05, 0.6))))
     c.rrect(250, 260, 470, 380, 6, CARD)
     c.rrect(250, 260, 470, 292, 6, RED, False)
     c.text(360, 340, str(yr), 52, INK, "mono")
@@ -234,5 +234,159 @@ def end(c, t, dur, p):
     c.line([(x + 25, 900 - 130), (x + 55, 900 - 85)], INK, 6)
 
 
+def twelve_grid(c, t, dur, p):
+    for i in range(12):
+        r, col = divmod(i, 3)
+        x, y = 170 + col * 190, 330 + r * 160
+        k = ease_back(seg(p, 0.1 + i * 0.05, 0.22 + i * 0.05))
+        if k <= 0:
+            continue
+        w, h = 150 * k, 120 * k
+        fill = [TEAL_L, INK, RED][i % 3]
+        c.rrect(x - w / 2, y - h / 2, x + w / 2, y + h / 2, 8, fill)
+        if k > 0.9:
+            c.text(x, y, str(i + 1), 56, WHITE, "mono")
+
+
+def memorize(c, t, dur, p):
+    ground(c)
+    kid(c, 160, h=140)
+    rx, ry = 560, 700 + math.sin(t * 3) * 6
+    robot(c, rx, ry, 100 * ease_back(seg(p, 0.05, 0.2)), look=-1)
+    for i in range(5):
+        a, b = 0.2 + i * 0.1, 0.45 + i * 0.1
+        k = seg(p, a, b)
+        if k >= 1:
+            continue
+        e = ease_in_out(k)
+        x = lerp(200, rx, e)
+        y = lerp(GROUND - 200 - i * 10, ry, e) - math.sin(math.pi * e) * 160
+        s = lerp(1, 0.3, e)
+        c.rrect(x - 40 * s, y - 28 * s, x + 40 * s, y + 28 * s, 3, [RED, TEAL_L, INK][i % 3])
+        if s > 0.6:
+            c.line([(x - 24 * s, y - 6 * s), (x + 24 * s, y - 6 * s)], WHITE, 3)
+            c.line([(x - 24 * s, y + 8 * s), (x + 14 * s, y + 8 * s)], WHITE, 3)
+    stack = sum(1 for i in range(5) if p > 0.45 + i * 0.1)
+    for i in range(stack):
+        c.rrect(rx - 50, ry - 110 - i * 22, rx + 50, ry - 90 - i * 22, 3, [RED, TEAL_L, INK][i % 3])
+    if p > 0.8:
+        check(c, 620, 470, 40, p=seg(p, 0.8, 0.95))
+
+
+def focus(c, t, dur, p):
+    ground(c)
+    c.rrect(260, 860, 460, 880, 3, INK)              # desk
+    c.line([(290, 880), (290, GROUND)], INK, 6)
+    c.line([(430, 880), (430, GROUND)], INK, 6)
+    c.rrect(320, 830, 400, 860, 3, CARD)             # book
+    kid(c, 360, 860, 120)
+    ring = ease_out(seg(p, 0.45, 0.7))
+    for i in range(7):
+        a = i / 7 * math.tau + t * 0.6
+        k = ease_back(seg(p, 0.05 + i * 0.05, 0.15 + i * 0.05))
+        if k <= 0:
+            continue
+        rad = lerp(190, 300, ring)
+        x, y = 360 + math.cos(a) * rad, 720 + math.sin(a) * rad * 0.8
+        fade_k = 1 - seg(p, 0.6, 0.85)
+        if fade_k <= 0:
+            continue
+        c.rrect(x - 44 * k, y - 22 * k, x + 44 * k, y + 22 * k, 10, fade(RED if i % 2 else INK, fade_k))
+        if k > 0.9:
+            c.circle(x - 26, y, 6, fade(WHITE, fade_k), shadow=False)
+    if p > 0.6:
+        g = seg(p, 0.6, 0.8)
+        c.circle(360, 790, 110 + 6 * math.sin(t * 4), fade(TEAL, 0.08 * g), shadow=False, outline=fade(TEAL, g), width=4)
+
+
+def adapt(c, t, dur, p):
+    ground(c)
+    # one narrow path vs a kid that can switch between shapes
+    m = ease_in_out(seg(p, 0.25, 0.75))
+    for i, (x, col) in enumerate([(160, TEAL_L), (360, INK), (560, RED)]):
+        c.rrect(x - 70, 420, x + 70, 520, 8, fade(col, 0.35 + 0.65 * (abs(m * 2 - i) < 0.5)))
+    labels = ["coding", "design", "business"]
+    for i, (x, s) in enumerate(zip([160, 360, 560], labels)):
+        c.text(x, 470, s, 24, WHITE, "mono")
+    x = lerp(160, 560, m)
+    kid(c, x, h=140, walk=t * 9 if 0 < m < 1 else None, arm="up")
+    c.arrow((x, 760), (x, 560), RED, 4, 16)
+
+
+def split_schools(c, t, dur, p):
+    ground(c)
+    k = ease_back(seg(p, 0.05, 0.25))
+    for x, col, name, icon in [(200, GREY, "speed", "fast"), (520, TEAL, "thinking", "think")]:
+        w, h = 220 * k, 300 * k
+        c.rrect(x - w / 2, GROUND - h, x + w / 2, GROUND, 6, col)
+        c.poly([(x - w / 2 - 20, GROUND - h), (x + w / 2 + 20, GROUND - h), (x, GROUND - h - 90 * k)], INK)
+        if k > 0.9:
+            c.text(x, GROUND - 230, name, 30, WHITE, "mono")
+            if icon == "fast":
+                for j in range(3):
+                    c.line([(x - 60, GROUND - 150 + j * 30), (x + 60 - j * 20, GROUND - 150 + j * 30)], WHITE, 6)
+            else:
+                c.circle(x, GROUND - 130, 34, (240, 200, 70), shadow=False)
+                c.rrect(x - 14, GROUND - 98, x + 14, GROUND - 80, 3, WHITE, False)
+    walk = seg(p, 0.35, 0.9)
+    kid(c, lerp(360, 520, ease_in_out(walk)), h=110, walk=t * 9 if 0 < walk < 1 else None)
+
+
+def home(c, t, dur, p):
+    ground(c)
+    c.poly([(140, 520), (580, 520), (360, 360)], RED)
+    c.rrect(170, 520, 550, GROUND, 4, CARD)
+    c.rrect(250, 840, 470, 860, 3, INK)
+    person(c, 260, GROUND, 230, INK, arm="point" if p > 0.2 else None)
+    kid(c, 420, GROUND, 130, arm="up" if p > 0.55 else None)
+    k = ease_back(seg(p, 0.55, 0.7))
+    if k > 0:
+        y = 700 + math.sin(t * 3) * 6
+        c.circle(430, y, 40 * k, (240, 200, 70), shadow=False)
+        c.rrect(430 - 16 * k, y + 34 * k, 430 + 16 * k, y + 54 * k, 3, INK, False)
+        for j in range(6):
+            a = j / 6 * math.tau
+            c.line([(430 + math.cos(a) * 52 * k, y + math.sin(a) * 52 * k),
+                    (430 + math.cos(a) * 68 * k, y + math.sin(a) * 68 * k)], (240, 200, 70), 4)
+
+
+def thinker(c, t, dur, p):
+    ground(c)
+    kid(c, 360, h=170)
+    for i in range(10):
+        a = i / 10 * math.tau + t * 0.8
+        k = ease_back(seg(p, 0.05 + i * 0.03, 0.15 + i * 0.03))
+        x, y = 360 + math.cos(a) * 250, 600 + math.sin(a) * 200
+        c.rrect(x - 50 * k, y - 18 * k, x + 50 * k, y + 18 * k, 4, fade(GREY, 1 - 0.6 * seg(p, 0.5, 0.8)))
+        if k > 0.9:
+            c.text(x, y, "answer", 18, fade(WHITE, 1 - seg(p, 0.5, 0.8)), "mono")
+    g = ease_back(seg(p, 0.5, 0.65))
+    if g > 0:
+        y = 700 + math.sin(t * 3) * 6
+        c.circle(360, y, 46 * g, (240, 200, 70), shadow=False)
+        c.rrect(360 - 18 * g, y + 40 * g, 360 + 18 * g, y + 62 * g, 3, INK, False)
+
+
+def money(c, t, dur, p):
+    ground(c)
+    kid(c, 170, h=140, arm="point" if p > 0.1 else None)
+    # piggy bank
+    c.circle(470, 860, 90, (232, 150, 160))
+    c.circle(550, 840, 30, (232, 150, 160))
+    c.rrect(410, 930, 440, GROUND, 4, (210, 130, 140))
+    c.rrect(500, 930, 530, GROUND, 4, (210, 130, 140))
+    c.rrect(445, 768, 495, 778, 3, INK, False)
+    c.circle(545, 832, 6, INK, shadow=False)
+    for i in range(5):
+        k = seg(p, 0.1 + i * 0.13, 0.28 + i * 0.13)
+        if 0 < k < 1:
+            c.circle(470, lerp(420, 770, k * k), 24, (236, 186, 60))
+            c.text(470, lerp(420, 770, k * k), "₹", 26, INK, "te")
+    saved = sum(1 for i in range(5) if p > 0.28 + i * 0.13)
+    for i in range(saved):
+        c.rrect(590, 900 - i * 24, 660, 920 - i * 24, 4, (236, 186, 60))
+
+
 SCENES = {f.__name__: f for f in [kid_class5, future_door, marks, questions, basics, hands, speak, fall_rise,
-                                   ai_tool, ranks_skills, end]}
+                                   ai_tool, ranks_skills, end, twelve_grid, memorize, focus, adapt,
+                                   split_schools, home, thinker, money]}

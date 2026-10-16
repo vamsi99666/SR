@@ -11,7 +11,8 @@
    "scene": "four_stamps",
    "label": "C001: encrypt data at rest",
    "te": "Take C001: sensitive data must be encrypted at rest. Security Architecture says partially effective. Cyber Risk says ineffective. SOX says not applicable. Internal Audit says effective. One control. Four conclusions.",
-   "en": "Take C001: sensitive data must be encrypted at rest. Security Architecture says partially effective. Cyber Risk says ineffective. SOX says not applicable. Internal Audit says effective. One control. Four conclusions."
+   "en": "Take C001: sensitive data must be encrypted at rest. Security Architecture says partially effective. Cyber Risk says ineffective. SOX says not applicable. Internal Audit says effective. One control. Four conclusions.",
+   "tts": "Take C zero zero one: sensitive data must be encrypted at rest. Security Architecture says partially effective. Cyber Risk says ineffective. Socks says not applicable. Internal Audit says effective. One control. Four conclusions."
   },
   {
    "scene": "copies",
@@ -58,5 +59,9 @@
   "voice_id": "lo1O1Dz1Tu4FWVEPaxuT"
  },
  "pad": 0.2,
- "tail": 0.7
+ "tail": 0.7,
+ "pronunciation": {
+  "C001": "C zero zero one",
+  "SOX": "socks"
+ }
 }

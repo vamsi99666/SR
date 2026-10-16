@@ -1,0 +1,62 @@
+{
+ "title": "One control, four conclusions",
+ "lang": "en",
+ "lines": [
+  {
+   "scene": "one_to_many",
+   "te": "One control. Five thousand applications. And one question from the CRO: is this control effective across the enterprise?",
+   "en": "One control. Five thousand applications. And one question from the CRO: is this control effective across the enterprise?"
+  },
+  {
+   "scene": "four_stamps",
+   "label": "C001: encrypt data at rest",
+   "te": "Take C001: sensitive data must be encrypted at rest. Security Architecture says partially effective. Cyber Risk says ineffective. SOX says not applicable. Internal Audit says effective. One control. Four conclusions.",
+   "en": "Take C001: sensitive data must be encrypted at rest. Security Architecture says partially effective. Cyber Risk says ineffective. SOX says not applicable. Internal Audit says effective. One control. Four conclusions."
+  },
+  {
+   "scene": "copies",
+   "label": "Option 1: copy it everywhere",
+   "te": "Copy the control into every assessment, and you get thousands of conflicting versions.",
+   "en": "Copy the control into every assessment, and you get thousands of conflicting versions."
+  },
+  {
+   "scene": "three_layers",
+   "label": "Separate three things",
+   "te": "Instead, separate three things. The definition: what must be true. The implementation: where and how it applies. The assessment: what was tested, on what evidence, with what result.",
+   "en": "Instead, separate three things. The definition: what must be true. The implementation: where and how it applies. The assessment: what was tested, on what evidence, with what result."
+  },
+  {
+   "scene": "average_trap",
+   "label": "The averaging trap",
+   "te": "An ineffective control on a critical application should never disappear inside an average.",
+   "en": "An ineffective control on a critical application should never disappear inside an average."
+  },
+  {
+   "scene": "cro_dashboard",
+   "label": "What the CRO hears",
+   "te": "So the CRO hears: partially effective. 92% of critical apps covered, 8% failing, exceptions tracked.",
+   "en": "So the CRO hears: partially effective. 92% of critical apps covered, 8% failing, exceptions tracked."
+  },
+  {
+   "scene": "governance",
+   "te": "That's a defensible risk statement. No platform can decide that for you. It's a governance decision.",
+   "en": "That's a defensible risk statement. No platform can decide that for you. It's a governance decision."
+  }
+ ],
+ "layout": {
+  "caption_y": 1045,
+  "caption_size": 36,
+  "caption_plate": true,
+  "caption_max_lines": 3,
+  "caption_max_lines_16x9": 5,
+  "crop_y": 225
+ },
+ "voice": {
+  "provider": "ElevenLabs",
+  "model": "eleven_v3",
+  "voice": "Oliver - Warm British Narrator",
+  "voice_id": "lo1O1Dz1Tu4FWVEPaxuT"
+ },
+ "pad": 0.2,
+ "tail": 0.7
+}

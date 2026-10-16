@@ -29,7 +29,8 @@ from engine import W, H, FPS, Canvas, caption, label_card, seg
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 SCENE_MODULES = {"jobs_pyramid": "scenes_jobs", "kids_future": "scenes_kids",
-                 "kids_v2": "scenes_kids", "kids_sample": "scenes_kids"}
+                 "kids_v2": "scenes_kids", "kids_sample": "scenes_kids",
+                 "grc_control": "scenes_grc"}
 PAD = 0.35        # silence after each line
 TAIL = 1.2        # hold on the last scene
 SR = 44100
@@ -56,16 +57,21 @@ def probe(path):
     return float(out.strip())
 
 
+def pads(script):
+    return script.get("pad", PAD), script.get("tail", TAIL)
+
+
 def timeline(name, script):
+    pad, tail = pads(script)
     have_audio = all(os.path.exists(audio_path(name, i)) for i in range(len(script["lines"])))
     durs = []
     for i, ln in enumerate(script["lines"]):
         if have_audio:
-            d = probe(audio_path(name, i)) + PAD
+            d = probe(audio_path(name, i)) + pad
         else:
             d = max(2.4, len(ln["te"]) / 13.0 + 0.6)
         if i == len(script["lines"]) - 1:
-            d += TAIL
+            d += tail
         durs.append(d)
     return durs, have_audio
 
@@ -97,7 +103,8 @@ def _locate(fi):
     i = int(np.searchsorted(starts, tg, side="right") - 1)
     ln, dur = script["lines"][i], durs[i]
     t = tg - starts[i]
-    speak = dur - PAD - (TAIL if i == len(durs) - 1 else 0)
+    pad, tail = pads(script)
+    speak = dur - pad - (tail if i == len(durs) - 1 else 0)
     return script, i, ln, dur, t, min(1.0, t / dur), min(1.0, t / max(0.5, speak)), wt.get(i)
 
 
@@ -117,7 +124,7 @@ def render_portrait(fi):
     if lay.get("caption_plate"):
         c.rrect(10, 968, 710, 1180, 18, engine.PAPER, shadow=False)
     caption(c, ln["te"], cp, y=lay.get("caption_y", 1110), size=lay.get("caption_size", 40),
-            starts=starts, t=t)
+            starts=starts, t=t, max_lines=lay.get("caption_max_lines", 99))
     return c.img.resize(OUT["portrait"], Image.LANCZOS).tobytes()
 
 
@@ -146,7 +153,8 @@ def _tracker(lc, script, ln):
 def render_landscape(fi):
     c, script, i, ln, t, p, cp, starts = _scene(fi)
     S = engine.S
-    art = c.img.crop((0, 250 * S, 720 * S, 970 * S)).resize((1000 * S, 1000 * S), Image.LANCZOS)
+    cy0 = script.get("layout", {}).get("crop_y", 250)
+    art = c.img.crop((0, cy0 * S, 720 * S, (cy0 + 720) * S)).resize((1000 * S, 1000 * S), Image.LANCZOS)
     lc = _LCanvas(_bg_land)
     lc.img.paste(art, (40 * S, 40 * S))
     lc.line([(1070, 80), (1070, 1000)], (210, 202, 188), 2)
@@ -156,7 +164,8 @@ def render_landscape(fi):
         lc.text(1495, 330 - 30 * (1 - k), ln["label"], 66, engine.fade(engine.INK, k), "hand")
         w = lc.text_w(ln["label"], 66, "hand")
         lc.line([(1495 - w / 2, 385), (1495 - w / 2 + w * k, 385)], engine.RED, 3)
-    caption(lc, ln["te"], cp, y=720, size=50, max_w=740, cx=1495, starts=starts, t=t)
+    caption(lc, ln["te"], cp, y=720, size=50, max_w=740, cx=1495, starts=starts, t=t,
+            max_lines=script.get("layout", {}).get("caption_max_lines_16x9", 99))
     return lc.img.resize(OUT["landscape"], Image.LANCZOS).tobytes()
 
 

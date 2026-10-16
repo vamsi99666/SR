@@ -312,7 +312,7 @@ def _caption_layout(c, words, size, max_w):
     return lines, sp
 
 
-def caption(c, text, p, y=1110, size=40, max_w=620, cx=None, starts=None, t=None):
+def caption(c, text, p, y=1110, size=40, max_w=620, cx=None, starts=None, t=None, max_lines=99):
     """Word-by-word reveal: spoken words in ink, upcoming words greyed.
     starts: measured word start times (s) from speech-to-text; when given, each
     script word lights up exactly when it is spoken (mapped by index if the
@@ -337,8 +337,20 @@ def caption(c, text, p, y=1110, size=40, max_w=620, cx=None, starts=None, t=None
             acc += wt
     lines, sp = _caption_layout(c, words, size, max_w)
     lh = size * 1.55
-    y0 = y - (len(lines) - 1) * lh / 2
     idx = 0
+    if len(lines) > max_lines:
+        # page long captions: show the block of lines holding the current word
+        cur = max(0, shown - 1)
+        counts = [len(ln) for ln in lines]
+        li_cur, acc = 0, 0
+        for li_cur, n_ in enumerate(counts):
+            if cur < acc + n_:
+                break
+            acc += n_
+        page = li_cur // max_lines
+        idx = sum(counts[:page * max_lines])
+        lines = lines[page * max_lines:(page + 1) * max_lines]
+    y0 = y - (len(lines) - 1) * lh / 2
     for li, ln in enumerate(lines):
         total = sum(w for _, w in ln) + sp * (len(ln) - 1)
         x = cx - total / 2
